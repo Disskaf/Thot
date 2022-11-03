@@ -1,5 +1,5 @@
 # juego
-user_option = input('Piedra, papel o tiera => ')
+user_option = input('Piedra, papel o tiera => ').lower()
 computer_option = 'piedra'
 
 if user_option == computer_option:
