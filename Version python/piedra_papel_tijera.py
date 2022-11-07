@@ -1,6 +1,14 @@
 # juego
+import random
+
+options = ('piedra', 'papel', 'tijera')
+
 user_option = input('Piedra, papel o tiera => ').lower()
 computer_option = 'piedra'
+computer_option = random.choice(options)
+
+print('Opción del usuario => ', user_option)
+print('Opción del usuario => ', computer_option)
 
 if user_option == computer_option:
     print('Empate')
