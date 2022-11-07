@@ -8,7 +8,7 @@ rounds = 1
 
 while True:
     print('*' * 10)
-    print('ROUUND', rounds)
+    print('ROUND', rounds)
     print(f'USER: {user_wins} vs PC: {computer_wins	}')
     print('*' * 10)
 
