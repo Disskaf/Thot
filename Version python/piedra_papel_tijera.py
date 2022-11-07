@@ -7,6 +7,9 @@ user_option = input('Piedra, papel o tiera => ').lower()
 computer_option = 'piedra'
 computer_option = random.choice(options)
 
+if not user_option in options:
+    print('Esa opción no es valida')
+
 print('Opción del usuario => ', user_option)
 print('Opción del usuario => ', computer_option)
 
