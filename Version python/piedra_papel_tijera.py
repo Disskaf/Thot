@@ -1,28 +1,23 @@
 # juego
 import random
 
-options = ('piedra', 'papel', 'tijera')
-computer_wins = 0
-user_wins = 0
-rounds = 1
 
-while True:
-    print('*' * 10)
-    print('ROUND', rounds)
-    print(f'USER: {user_wins} vs PC: {computer_wins	}')
-    print('*' * 10)
-
+def choice_options():
+    options = ('piedra', 'papel', 'tijera')
     user_option = input('Piedra, papel o tiera => ').lower()
-    computer_option = 'piedra'
-    computer_option = random.choice(options)
 
     if not user_option in options:
         print('Esa opción no es valida')
-        continue
+        return None, None
+
+    computer_option = random.choice(options)
 
     print('Opción del usuario => ', user_option)
     print('Opción del usuario => ', computer_option)
+    return user_option, computer_option
 
+
+def check_rules(user_option, computer_option, user_wins, computer_wins):
     if user_option == computer_option:
         print('Empate')
     elif user_option == 'piedra':
@@ -52,11 +47,35 @@ while True:
             print('Piedra gana a tijera')
             print('Computer gano')
             computer_wins += 1
+    return user_wins, computer_wins
+
+
+def winner(user_wins, computer_wins):
     if computer_wins == 2:
         print('El ganador es la computadora')
-        break
+        exit()
+
     if user_wins == 2:
         print('El ganador es el usuario')
-        break
+        exit()
 
-    rounds += 1
+
+def run_game():
+    user_wins = 0
+    computer_wins = 0
+    rounds = 1
+
+    while True:
+        print('*' * 10)
+        print('ROUND', rounds)
+        print(f'USER: {user_wins} vs PC: {computer_wins	}')
+        print('*' * 10)
+
+        user_option, computer_option = choice_options()
+        user_wins, computer_wins = check_rules(
+            user_option, computer_option, user_wins, computer_wins)
+        winner(user_wins, computer_wins)
+        rounds += 1
+
+
+run_game()
